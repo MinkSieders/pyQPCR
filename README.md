@@ -21,19 +21,19 @@ The plater command allows users to design a qPCR plate layout based on a sample 
 
 ### Arguments:
 
-'--input' (str, required): Path to the sample list (.txt) or prepared layout file (.tsv).
+`--input` (str, required): Path to the sample list (.txt) or prepared layout file (.tsv).
 
-'--design' (str, optional, default: sequential_1): Plate design for automatic well assignment. Currently supports sequential_1.
+`--design` (str, optional, default: sequential_1): Plate design for automatic well assignment. Currently supports sequential_1.
 
-'--target_genes' (list of str, optional): List containing 3-letter primer gene target IDs.
+`--target_genes` (list of str, optional): List containing 3-letter primer gene target IDs.
 
-'--number_technical_replicates' (int, optional, default: 2): Number of technical replicates for each sample.
+`--number_technical_replicates` (int, optional, default: 2): Number of technical replicates for each sample.
 
 ### Example Usage:
 
 To design a qPCR plate with a sequential layout of 96 wells and a custom list of target genes:
 
-'python pyQPCR.py plater --input samples.txt --design sequential_1 --target_genes GeneX GeneY GeneZ --number_technical_replicates 3'
+`python pyQPCR.py plater --input samples.txt --design sequential_1 --target_genes GeneX GeneY GeneZ --number_technical_replicates 3`
 
 ## Output Handling
 
