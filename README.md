@@ -17,7 +17,7 @@ For in-depth explanation on all the flags within each command, use --help or -h.
 
 `python pyQPCR.py plater`
 
-The plater command allows users to design a qPCR plate layout based on a sample list or prepared layout file.
+The `plater` command allows users to design a qPCR plate layout based on a sample list or prepared layout file.
 
 ### Arguments:
 
@@ -34,6 +34,37 @@ The plater command allows users to design a qPCR plate layout based on a sample 
 To design a qPCR plate with a sequential layout of 96 wells and a custom list of target genes:
 
 `python pyQPCR.py plater --input samples.txt --design sequential_1 --target_genes GeneX GeneY GeneZ --number_technical_replicates 3`
+
+## Usage | Plater
+
+`python pyQPCR.py analyzer`
+
+The `analyzer` command processes and analyzes qPCR data. It works with input files containing Ct values, raw spectra, and dissociation curve results. When provided with a layout file, it will also annotate results based on names and target genes for the primer sets. For CT analysis a layout file is required.
+
+### Arguments:
+
+`--input_ct` (str, optional): Path to the CSV file with Ct results. If not provided, no Ct analysis is performed.
+
+`--input_spec` (str, optional): Path to the CSV file with raw spectra results.
+
+`--input_dis` (str, optional): Path to the CSV file with dissociation curve results.
+
+`--input_layout` (str, optional): Path to a TSV file with the qPCR plate layout.
+
+`--method` (str, optional, default: dct): Method for analysis. Supported methods include dct.
+
+`--housekeeping_gene` (str, optional): Housekeeping target ID used in the layout file.
+
+`--show_cycles` (int, optional, default: 40): Number of cycles to display in raw spectra traces.
+
+`--embed_ct` (bool, optional, default: True): Whether to embed Ct data and layout information into spectra output. Set to True or False.
+
+### Example Usage:
+
+To process and analyze qPCR results with Ct values, spectra, and dissociation curves:
+
+`python pyQPCR.py analyzer --input_ct ct_results.csv --input_spec spectra_results.csv --input_dis dissociation_curve.csv --input_layout layout.tsv --method dct --housekeeping_gene GeneX --show_cycles 40 --embed_ct True`
+
 
 ## Output Handling
 
